@@ -2,9 +2,9 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
+    "//#check:toml": {},
     "//#install:rust": {
-      "outputs": ["bin/**"],
-      "dependsOn": ["//#check:toml", "//#install:rust"]
+      "outputs": ["bin/**"]
     },
     "install": {
       "dependsOn": ["//#install:rust", "^install"],
