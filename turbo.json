@@ -2,6 +2,13 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
+    "install:rust": {
+      "cache": true,
+      "outputs": ["bin/**"]
+    },
+    "install": {
+      "dependsOn": ["install:rust"]
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]

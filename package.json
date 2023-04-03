@@ -7,6 +7,7 @@
     "packages/*"
   ],
   "scripts": {
+    "install:rust": "chmod +x ./scripts/install-rust.sh && ./scripts/install-rust.sh",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
