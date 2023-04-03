@@ -1,0 +1,15 @@
+* text=auto eol=lf
+
+* indent=space indent-with-non-tab=true tabwidth=4
+* max-line-length=120
+* -insert-final-newline
+
+*.rs max-line-length=100
+*.har linguist-language=JavaScript
+*.jsb2 linguist-language=JavaScript
+*.jsb3 linguist-language=JavaScript
+*.json linguist-language=JSON
+.eslintrc linguist-language=JSON
+.prettierrc linguist-language=JSON
+*.yaml linguist-language=YAML
+*.yml linguist-language=YAML

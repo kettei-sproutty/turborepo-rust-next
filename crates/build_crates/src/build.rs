@@ -31,6 +31,11 @@ pub fn build_project(member: &AnalyzedMember) {
             }
         }
         MemberTarget::Cargo => {
+            // 1. fetchare il Cargo.toml all'interno della path
+            // 2. estrapolare dal Cargo.toml il nome del progetto
+            // 3. runnare Command (cargo -p nome-progetto)
+            // 4. Controllare lo status
+            // 5. Se fallisce, controllare se era skippabile, altrimenti ritorna -1
             println!("WIP")
         }
     }

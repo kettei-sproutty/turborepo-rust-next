@@ -1,20 +1,21 @@
 [workspace]
 resolver = "2"
 members = [
-    # Vercel Rust Runtime
-    "apps/web/api",
-    # Build Crates
-    "crates/build_crates",
-    "crates/greet"
+  # Vercel Rust Runtime
+  "apps/web/api",
+  # Build Crates
+  "crates/build_crates",
+  "crates/greet",
 ]
 default-members = [
-    # Vercel Rust Runtime
-    "apps/web/api",
-    # Build Crates
-    "crates/build_crates",
-    "crates/greet"
+  # Vercel Rust Runtime
+  "apps/web/api",
+  # Build Crates
+  "crates/build_crates",
+  "crates/greet",
 ]
 
 [[member]]
 path = "crates/*"
+target = "WasmPack"
 ignore = ["crates/build_crates"]

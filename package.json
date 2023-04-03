@@ -20,12 +20,26 @@
     "eslint-config-custom": "workspace:*",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
+    "simple-git-hooks": "^2.8.1",
     "turbo": "latest"
   },
   "lint-staged": {
     "*.toml": [
       "taplo format"
+    ],
+    "*.rs": [
+      "cargo clippy --fix",
+      "cargo fmt"
+    ],
+    "*.{json,md,mdx,css,html,yml,yaml,scss}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "engines": {
     "node": ">=18.0.0"

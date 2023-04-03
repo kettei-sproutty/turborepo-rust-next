@@ -15,4 +15,3 @@ vercel_runtime = "0.3.4"
 [[bin]]
 name = "greet"
 path = "greet.rs"
-
