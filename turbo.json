@@ -10,11 +10,11 @@
       "outputs": ["target/**", "crates/**/pkg/**"]
     },
     "install": {
-      "dependsOn": ["//#install:rust", "^install"],
+      "dependsOn": ["//#install:rust", "//#build:rust", "^install"],
       "outputs": ["node_modules/**", "pnpm-lock.yaml"]
     },
     "build": {
-      "dependsOn": ["//#build:rust", "install", "^build"],
+      "dependsOn": ["install", "^build"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
     "lint": {
