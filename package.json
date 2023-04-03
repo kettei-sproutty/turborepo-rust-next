@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "install:rust": "chmod +x ./scripts/install-rust.sh && ./scripts/install-rust.sh",
+    "build:rust": "chmox +x ./scripts/build-rust.sh && ./scripts/build-rust.sh",
     "check:toml": "taplo format --check",
     "build": "turbo run build",
     "dev": "turbo run dev",

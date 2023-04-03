@@ -6,12 +6,15 @@
     "//#install:rust": {
       "outputs": ["bin/**"]
     },
+    "//#build:rust": {
+      "outputs": ["target/**", "crates/**/pkg/**"]
+    },
     "install": {
       "dependsOn": ["//#install:rust", "^install"],
       "outputs": ["node_modules/**", "pnpm-lock.yaml"]
     },
     "build": {
-      "dependsOn": ["install", "^build"],
+      "dependsOn": ["#//build:rust", "install", "^build"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
     "lint": {
