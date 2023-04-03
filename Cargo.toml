@@ -5,14 +5,12 @@ members = [
     "apps/web/api",
     # Build Crates
     "crates/build_crates",
-    # Example crate to build
-    "crates/example"
+    "crates/greet"
 ]
 default-members = [
     # Vercel Rust Runtime
     "apps/web/api",
     # Build Crates
     "crates/build_crates",
-    # Example crate to build
-    "crates/example"
+    "crates/greet"
 ]

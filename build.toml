@@ -1,6 +1,6 @@
 [[member]]
 path = "crates/*"
-target = "Cargo"
+target = "WasmPack"
 
 [[ignored_member]]
 path = "crates/build_crates"
