@@ -8,19 +8,26 @@
   ],
   "scripts": {
     "install:rust": "chmod +x ./scripts/install-rust.sh && ./scripts/install-rust.sh",
+    "check:toml": "taplo format --check",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@taplo/cli": "^0.5.2",
     "eslint-config-custom": "workspace:*",
-    "prettier": "latest",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
     "turbo": "latest"
   },
-  "engines": {
-    "node": ">=14.0.0"
+  "lint-staged": {
+    "*.toml": [
+      "taplo format"
+    ]
   },
-  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "packageManager": "pnpm@8.1.0"
 }
