@@ -1,14 +1,14 @@
-use std::path::Path;
-use std::process::{Command, exit};
 use crate::members::{AnalyzedMember, MemberTarget};
+use std::path::Path;
+use std::process::{exit, Command};
 
-pub fn build_project(member: &AnalyzedMember) -> () {
+pub fn build_project(member: &AnalyzedMember) {
     let cargo_toml_path = format!("{}/{}", member.path, "Cargo.toml");
     let is_cargo_project = Path::new(&cargo_toml_path).exists();
 
     if !is_cargo_project {
         eprintln!("{:?}: is not a cargo project, skipping.", member.path);
-        return ()
+        return;
     }
 
     match &member.target {
@@ -29,9 +29,7 @@ pub fn build_project(member: &AnalyzedMember) -> () {
                     exit(-1);
                 }
             }
-
-            return ();
-        },
+        }
         MemberTarget::Cargo => {
             println!("WIP")
         }

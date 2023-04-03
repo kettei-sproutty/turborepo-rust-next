@@ -1,5 +1,5 @@
-use glob::{glob};
-use serde::{Deserialize};
+use glob::glob;
+use serde::Deserialize;
 use std::process::exit;
 
 fn default_target() -> String {
@@ -24,14 +24,14 @@ struct Member {
     #[serde(default = "Vec::new")]
     ignore: Vec<String>,
     #[serde(default = "default_skippable")]
-    skippable: bool
+    skippable: bool,
 }
 
 #[derive(Debug, Clone)]
 pub struct AnalyzedMember {
     pub path: String,
     pub target: MemberTarget,
-    pub skippable: bool
+    pub skippable: bool,
 }
 
 #[derive(Deserialize, Debug)]
@@ -59,7 +59,7 @@ fn analyze_members(members: Vec<Member>) -> Vec<AnalyzedMember> {
                         return None;
                     }
 
-                    let target =  if member.target == "WasmPack" {
+                    let target = if member.target == "WasmPack" {
                         MemberTarget::WasmPack
                     } else {
                         MemberTarget::Cargo
@@ -68,7 +68,7 @@ fn analyze_members(members: Vec<Member>) -> Vec<AnalyzedMember> {
                     Some(AnalyzedMember {
                         path,
                         target,
-                        skippable: member.skippable
+                        skippable: member.skippable,
                     })
                 })
                 .collect();
@@ -89,7 +89,5 @@ pub fn get_members() -> Vec<AnalyzedMember> {
         exit(0)
     });
 
-    let effective_member = analyze_members(members);
-
-    effective_member
+    analyze_members(members)
 }
