@@ -1,0 +1,6 @@
+[[member]]
+path = "crates/*"
+target = "Cargo"
+
+[[ignored_member]]
+path = "crates/build_crates"

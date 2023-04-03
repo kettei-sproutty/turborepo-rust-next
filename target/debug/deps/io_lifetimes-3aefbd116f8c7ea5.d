@@ -1,0 +1,10 @@
+/Users/alessio.marchi/github-repos/turborepo-rust-next/target/debug/deps/io_lifetimes-3aefbd116f8c7ea5.rmeta: /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/lib.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/portability.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/traits.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/example_ffi.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/raw.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/views.rs
+
+/Users/alessio.marchi/github-repos/turborepo-rust-next/target/debug/deps/io_lifetimes-3aefbd116f8c7ea5.d: /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/lib.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/portability.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/traits.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/example_ffi.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/raw.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/views.rs
+
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/lib.rs:
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/portability.rs:
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/traits.rs:
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/example_ffi.rs:
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/raw.rs:
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.9/src/views.rs:

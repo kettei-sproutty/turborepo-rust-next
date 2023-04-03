@@ -1,0 +1,18 @@
+[package]
+name = "next-rust-runtime"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1.0.158", features = ["derive"] }
+serde_json = "1.0.94"
+tokio = "1.26.0"
+vercel_runtime = "0.3.4"
+
+[[bin]]
+name = "greet"
+path = "greet.rs"
+

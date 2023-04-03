@@ -1,0 +1,9 @@
+/Users/alessio.marchi/github-repos/turborepo-rust-next/target/debug/deps/anstyle_parse-85d6803d368ec22e.rmeta: /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/lib.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/params.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/state/mod.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/state/definitions.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/state/table.rs
+
+/Users/alessio.marchi/github-repos/turborepo-rust-next/target/debug/deps/anstyle_parse-85d6803d368ec22e.d: /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/lib.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/params.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/state/mod.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/state/definitions.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/state/table.rs
+
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/lib.rs:
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/params.rs:
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/state/mod.rs:
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/state/definitions.rs:
+/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/anstyle-parse-0.1.1/src/state/table.rs:
