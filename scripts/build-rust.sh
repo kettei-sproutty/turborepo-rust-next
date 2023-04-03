@@ -9,5 +9,4 @@ if [ -d "$PWD/.cargo/bin" ]; then
   export PATH="$PWD/.cargo/bin:$PATH"
 fi
 
-cargo --help
-wasm-pack --help
+cargo run -p build_crates

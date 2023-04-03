@@ -3,9 +3,10 @@ use crate::utils::{is_cargo_workspace, log_error, log_info, log_output};
 use crossbeam_channel as channel;
 use rayon::prelude::*;
 use std::path::Path;
-use std::process::exit;
-use std::process::{Command, Stdio};
+use std::process::{exit, Command, Stdio};
 use std::time::Instant;
+use toml::Value;
+use std::fs;
 
 pub fn build_project(member: &Member, tx: channel::Sender<String>) {
     println!(
@@ -20,8 +21,18 @@ pub fn build_project(member: &Member, tx: channel::Sender<String>) {
             let manifest_path = Path::new(&member.path).join("Cargo.toml");
 
             let is_workspace = is_cargo_workspace();
+            let cargo_toml = fs::read_to_string(&manifest_path)
+                .expect("Failed to read Cargo.toml file");
+            let toml = cargo_toml
+                .parse::<Value>()
+                .expect("Failed to parse Cargo.toml as TOML");
+
             let command_args = if is_workspace {
-                ["run", "-p", &member.path]
+                let package_name = toml["package"]["name"]
+                    .as_str()
+                    .expect("Failed to extract package name from Cargo.toml");
+
+                ["build", "-p", package_name]
             } else {
                 ["build", "--manifest-path", manifest_path.to_str().unwrap()]
             };
