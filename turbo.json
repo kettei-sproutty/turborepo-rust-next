@@ -14,7 +14,7 @@
       "outputs": ["node_modules/**", "pnpm-lock.yaml"]
     },
     "build": {
-      "dependsOn": ["#//build:rust", "install", "^build"],
+      "dependsOn": ["//#build:rust", "install", "^build"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
     "lint": {
