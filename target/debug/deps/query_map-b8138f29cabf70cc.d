@@ -1,9 +1,0 @@
-/Users/alessio.marchi/github-repos/turborepo-rust-next/target/debug/deps/query_map-b8138f29cabf70cc.rmeta: /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/lib.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/serde/mod.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/serde/aws_api_gateway_v2.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/serde/standard.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/url_query.rs
-
-/Users/alessio.marchi/github-repos/turborepo-rust-next/target/debug/deps/query_map-b8138f29cabf70cc.d: /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/lib.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/serde/mod.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/serde/aws_api_gateway_v2.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/serde/standard.rs /Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/url_query.rs
-
-/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/lib.rs:
-/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/serde/mod.rs:
-/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/serde/aws_api_gateway_v2.rs:
-/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/serde/standard.rs:
-/Users/alessio.marchi/.cargo/registry/src/github.com-1ecc6299db9ec823/query_map-0.6.0/src/url_query.rs:

@@ -35,3 +35,7 @@ yarn-error.log*
 # Rust install
 .cargo
 .rustup
+
+# Rust and Cargo
+target
+pkg
