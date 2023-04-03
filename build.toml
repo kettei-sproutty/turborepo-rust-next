@@ -1,6 +1,0 @@
-[[member]]
-path = "crates/*"
-target = "WasmPack"
-
-[[ignored_member]]
-path = "crates/build_crates"
