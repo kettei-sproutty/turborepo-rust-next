@@ -3,14 +3,17 @@
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
     "//#check:toml": {},
+    "install:rust": {},
     "//#install:rust": {
-      "outputs": ["bin/**"]
+      "outputs": [".cargo/**", ".rustup/**"]
     },
+    "build:rust": {},
     "//#build:rust": {
+      "dependsOn": ["//#install:rust"],
       "outputs": ["target/**", "crates/**/pkg/**"]
     },
     "install": {
-      "dependsOn": ["//#install:rust", "//#build:rust", "^install"],
+      "dependsOn": ["//#build:rust", "^install"],
       "outputs": ["node_modules/**", "pnpm-lock.yaml"]
     },
     "build": {
