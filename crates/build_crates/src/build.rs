@@ -1,171 +1,39 @@
-use crate::members::{Member, MemberTarget};
-use crate::utils::{is_cargo_workspace, log_error, log_info, log_output};
-use crossbeam_channel as channel;
-use rayon::prelude::*;
 use std::path::Path;
-use std::process::{exit, Command, Stdio};
-use std::time::Instant;
-use toml::Value;
-use std::fs;
+use std::process::{Command, exit};
+use crate::members::{AnalyzedMember, MemberTarget};
 
-pub fn build_project(member: &Member, tx: channel::Sender<String>) {
-    println!(
-        "Building {} with thread ID: {:?}",
-        member.path,
-        std::thread::current().id()
-    );
+pub fn build_project(member: &AnalyzedMember) -> () {
+    let cargo_toml_path = format!("{}/{}", member.path, "Cargo.toml");
+    let is_cargo_project = Path::new(&cargo_toml_path).exists();
 
-    match member.target {
-        MemberTarget::Cargo => {
-            println!("Building {} with Cargo", member.path);
-            let manifest_path = Path::new(&member.path).join("Cargo.toml");
+    if !is_cargo_project {
+        eprintln!("{:?}: is not a cargo project, skipping.", member.path);
+        return ()
+    }
 
-            let is_workspace = is_cargo_workspace();
-            let cargo_toml = fs::read_to_string(&manifest_path)
-                .expect("Failed to read Cargo.toml file");
-            let toml = cargo_toml
-                .parse::<Value>()
-                .expect("Failed to parse Cargo.toml as TOML");
-
-            let command_args = if is_workspace {
-                let package_name = toml["package"]["name"]
-                    .as_str()
-                    .expect("Failed to extract package name from Cargo.toml");
-
-                ["build", "-p", package_name]
-            } else {
-                ["build", "--manifest-path", manifest_path.to_str().unwrap()]
-            };
-
-            let mut child = Command::new("cargo")
-                .args(command_args)
-                .stdout(Stdio::piped())
-                .stderr(Stdio::piped())
-                .spawn()
-                .expect("Failed to execute Cargo build");
-
-            if let Some(stdout) = child.stdout.take() {
-                let tx_clone = tx.clone();
-                let member_path_clone = member.path.clone();
-                std::thread::spawn(move || {
-                    log_output(
-                        std::io::BufReader::new(stdout),
-                        &member_path_clone,
-                        tx_clone,
-                    );
-                });
-            }
-
-            if let Some(stderr) = child.stderr.take() {
-                let tx_clone = tx;
-                let member_path_clone = member.path.clone();
-                std::thread::spawn(move || {
-                    log_output(
-                        std::io::BufReader::new(stderr),
-                        &member_path_clone,
-                        tx_clone,
-                    );
-                });
-            }
-
-            let status = child.wait().expect("Failed to wait on Cargo child process");
-
-            if !status.success() {
-                log_error(&format!(
-                    "[BUILD TOOLS - {}] Error building with Cargo",
-                    member.path
-                ));
-
-                if !member.is_skippable {
-                    exit(-1);
-                } else {
-                    log_info(&format!(
-                        "[BUILD TOOLS - {}] Skipping due to error, but continuing execution",
-                        member.path
-                    ));
-                }
-            }
-        }
+    match &member.target {
         MemberTarget::WasmPack => {
             println!("Building {} with wasm-pack", member.path);
             let mut child = Command::new("wasm-pack")
                 .args(["build", &member.path, "--verbose"])
-                .stdout(Stdio::piped())
-                .stderr(Stdio::piped())
                 .spawn()
                 .expect("Failed to execute wasm-pack build");
-
-            if let Some(stdout) = child.stdout.take() {
-                let tx_clone = tx.clone();
-                let member_path_clone = member.path.clone();
-                std::thread::spawn(move || {
-                    log_output(
-                        std::io::BufReader::new(stdout),
-                        &member_path_clone,
-                        tx_clone,
-                    );
-                });
-            }
-
-            if let Some(stderr) = child.stderr.take() {
-                let tx_clone = tx;
-                let member_path_clone = member.path.clone();
-                std::thread::spawn(move || {
-                    log_output(
-                        std::io::BufReader::new(stderr),
-                        &member_path_clone,
-                        tx_clone,
-                    );
-                });
-            }
 
             let status = child.wait().expect("Failed to wait on Cargo child process");
 
             if !status.success() {
-                log_error(&format!(
-                    "[BUILD TOOLS - {}] Error building with wasm-pack",
-                    member.path
-                ));
-
-                if !member.is_skippable {
-                    exit(-1);
+                if member.skippable {
+                    eprintln!("{} skipping due error", member.path);
                 } else {
-                    log_info(&format!(
-                        "[BUILD TOOLS - {}] Skipping due to error, but continuing execution",
-                        member.path
-                    ));
+                    eprintln!("{} exit due error", member.path);
+                    exit(-1);
                 }
             }
+
+            return ();
+        },
+        MemberTarget::Cargo => {
+            println!("WIP")
         }
     }
-}
-
-pub fn build_members(members: Vec<Member>) {
-    let start_time = Instant::now();
-
-    let (tx, rx) = channel::bounded::<String>(100); // Change this line
-
-    let logger = std::thread::spawn(move || {
-        for received in rx {
-            if received == "TERMINATE" {
-                // Add this condition
-                break;
-            }
-            println!("{}", received);
-        }
-    });
-
-    members
-        .par_iter()
-        .for_each(|member| build_project(member, tx.clone()));
-
-    let end_time = Instant::now();
-    let duration = end_time - start_time;
-
-    tx.send("TERMINATE".to_string()).unwrap(); // Add this line
-
-    // Join the logger thread to ensure all logs are printed
-    logger.join().unwrap();
-
-    println!("[BUILD TOOLS] Done in  {:?}", duration);
 }

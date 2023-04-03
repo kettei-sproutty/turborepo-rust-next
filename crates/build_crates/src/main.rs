@@ -1,14 +1,16 @@
-mod args;
-mod build;
+use rayon::prelude::*;
+use crate::members::{get_members};
+use crate::build::build_project;
+
 mod members;
-mod utils;
+mod build;
 
 fn main() {
-    let matches = args::get_matches();
-    let config_location = matches.get_one("config");
+    let workspace_members = get_members();
 
-    let effective_members = members::get_members(config_location);
-    println!("[BUILD TOOLS] members: {:?}", effective_members);
+    println!("[Members] {:?}", workspace_members);
 
-    build::build_members(effective_members);
+    workspace_members
+        .par_iter()
+        .for_each(|member| build_project(member));
 }

@@ -14,3 +14,7 @@ default-members = [
     "crates/build_crates",
     "crates/greet"
 ]
+
+[[member]]
+path = "crates/*"
+ignore = ["crates/build_crates"]
